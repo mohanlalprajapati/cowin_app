@@ -3,7 +3,7 @@
 block_cipher = None
 
 
-a = Analysis(['C:\\Users\\mohanlal.prajapati\\OneDrive - Dana Incorporated\\Python\\Cowin\\Slot_By_Maharashtra_District.py'],
+a = Analysis(['C:\\Users\\mohanlal.prajapati\\OneDrive - Dana Incorporated\\Python\\Cowin\\Vaccine_slot_availibility.py'],
              pathex=['C:\\Python36\\Scripts'],
              binaries=[],
              datas=[],
@@ -23,7 +23,7 @@ exe = EXE(pyz,
           a.zipfiles,
           a.datas,		  
 		  [],          
-          name='CowinApp_Pune',
+          name='Cowin Slots',
           debug=False,
           strip=False,
 		  runtime_tmpdir=None,

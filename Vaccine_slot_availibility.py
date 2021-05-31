@@ -4,7 +4,9 @@ import time
 import winsound
 
 header = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36'
+    'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36",
+    'Accept-Language': "hi_IN",
+    "accept": "application/json"
 }
 # Url to Get state list
 state_url = "https://cdn-api.co-vin.in/api/v2/admin/location/states"
@@ -25,7 +27,7 @@ if result.ok:
 
     state_name = input("Enter State name from above list.Leave Blank for Gujarat): ")
     if state_name:
-        selected_state = list(filter(lambda d: d['state_name'].lower() == state_name.strip().lower()), state_list)
+        selected_state = list(filter(lambda d: d['state_name'].lower() == state_name.strip().lower(), state_list))
         # selected_state = state_name
         if not selected_state:
             print(f'{state_name} is not available. Please check a spelling mistake.')
@@ -87,8 +89,10 @@ if result.ok:
                                         for session in center["sessions"]:
                                             if (session["available_capacity"] > 0):
                                                 if int(session["min_age_limit"]) == age_limit and (
-                                                        (dose_type == 1 and int(session["available_capacity_dose1"]) > 0) or
-                                                        (dose_type == 2 and int(session["available_capacity_dose2"]) > 0)):
+                                                        (dose_type == 1 and int(
+                                                            session["available_capacity_dose1"]) > 0) or
+                                                        (dose_type == 2 and int(
+                                                            session["available_capacity_dose2"]) > 0)):
                                                     print(f'District: {district["district_name"]}')
                                                     print("\t", f'Pincode: {center["pincode"]}')
                                                     print("\t", "Slot Opened on: {}".format(given_date))
@@ -99,9 +103,11 @@ if result.ok:
                                                     print("\t Age Limit: ", session["min_age_limit"])
                                                     print("\t Availablity : ", session["available_capacity"])
                                                     if int(session["available_capacity_dose1"]) > 0:
-                                                        print("\t Dose 1 Availablity : ", session["available_capacity_dose1"])
+                                                        print("\t Dose 1 Availablity : ",
+                                                              session["available_capacity_dose1"])
                                                     if int(session["available_capacity_dose2"]) > 0:
-                                                        print("\t Dose 2 Availablity : ", session["available_capacity_dose2"])
+                                                        print("\t Dose 2 Availablity : ",
+                                                              session["available_capacity_dose2"])
 
                                                     if (session["vaccine"] != ''):
                                                         print("\t Vaccine type: ", session["vaccine"])
